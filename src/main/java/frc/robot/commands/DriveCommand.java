@@ -26,7 +26,7 @@ public class DriveCommand extends CommandBase {
     @Override
     public void execute() {
         leftY = controller.getLeftY();
-        rightX = controller.getRightX();
+        rightX = controller.getRightX() * 0.75;
 
 
         setVals();
@@ -36,6 +36,12 @@ public class DriveCommand extends CommandBase {
     }
 
     public void setVals() {
+
+        if(controller.getRightTriggerAxis() > 0.5) { //UNDO
+            leftY*= 0.5;
+            //rightX *= 0.5;
+        }
+
         throttle = (Math.abs(leftY) > Constants.JOYSTICK_DEADZONE) ? leftY : 0;
         throttle = -throttle;
         rotation = (Math.abs(rightX) > Constants.JOYSTICK_DEADZONE) ? rightX : 0;
@@ -44,9 +50,11 @@ public class DriveCommand extends CommandBase {
         System.out.println("Left Y = " + leftY + ", Right X = " + rightX);
         //
 
-        if(controller.getRightTriggerAxis() > 0.5) { //UNDO
-            throttle *= 0.5;
-        }
+        //
+        System.out.println("Left Y = " + leftY + ", Right X = " + rightX);
+        //
+
+        
 
         isLowGear = false;
     }
