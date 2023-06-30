@@ -38,7 +38,7 @@ public final class Constants {
     public static final int DRIVE_SOLENOID_BACK = 7;
 
     //Controller constants
-    public static final double JOYSTICK_DEADZONE = 0.075;
+    public static final double JOYSTICK_DEADZONE = 0.075; //0.075;
 
 
     // Kinematics/Auto Constants

@@ -27,6 +27,12 @@ public class TankDriveCommand extends CommandBase {
         leftY = controller.getLeftY();
         rightY = controller.getRightY();
 
+        //add deadzones :3c
+        // if (leftY <= Constants.JOYSTICK_DEADZONE) {
+        //     leftY = 0;
+        // }
+        // if ()
+
 
         setVals();
         //System.out.println("Speed: " + throttle);
@@ -39,6 +45,10 @@ public class TankDriveCommand extends CommandBase {
         throttle = (Math.abs(leftY) > Constants.JOYSTICK_DEADZONE) ? leftY : 0;
         throttle = -throttle;
         rotation = (Math.abs(rightY) > Constants.JOYSTICK_DEADZONE) ? rightY : 0;
+
+        //
+        System.out.println("Left Y = " + leftY + ", Right X = " + rightY);
+        //
 
         if(controller.getRightTriggerAxis() > 0.5) { //UNDO
             throttle *= 0.5;

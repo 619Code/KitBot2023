@@ -52,6 +52,13 @@ public class Drivetrain extends SubsystemBase {
         
         leftMotors = new MotorControllerGroup(leftMotorArray);
         rightMotors = new MotorControllerGroup(rightMotorArray);
+
+        //reset
+        rightMotorArray[0].restoreFactoryDefaults();
+        rightMotorArray[1].restoreFactoryDefaults();
+
+        leftMotorArray[0].restoreFactoryDefaults();
+        leftMotorArray[1].restoreFactoryDefaults();
         
         // invert right motor
         rightMotors.setInverted(true);

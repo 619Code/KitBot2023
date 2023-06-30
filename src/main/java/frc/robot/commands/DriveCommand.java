@@ -40,6 +40,10 @@ public class DriveCommand extends CommandBase {
         throttle = -throttle;
         rotation = (Math.abs(rightX) > Constants.JOYSTICK_DEADZONE) ? rightX : 0;
 
+        //
+        System.out.println("Left Y = " + leftY + ", Right X = " + rightX);
+        //
+
         if(controller.getRightTriggerAxis() > 0.5) { //UNDO
             throttle *= 0.5;
         }
